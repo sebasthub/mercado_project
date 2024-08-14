@@ -11,6 +11,14 @@ jobs:
     steps:
     
       - uses: actions/checkout@v3
+
+      - name: Minor version for each merge
+        id: taggerDryRun
+        uses: anothrNick/github-tag-action@1.67.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.SECRET }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
     
       - name: Docker Login
         uses: docker/login-action@v2.1.0
@@ -24,6 +32,6 @@ jobs:
           context: .
           push: true
           tags: |
-            sebashub/mercado_project:0.0.1
+            sebashub/mercado_project:${{ steps.get_tag.outputs.tag }}
             sebashub/mercado_project:latest
             
