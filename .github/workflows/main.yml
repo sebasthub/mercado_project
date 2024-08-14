@@ -25,6 +25,10 @@ jobs:
         with:
           username: ${{ secrets.USER }}  
           password: ${{ secrets.PASSWOR }}
+      
+      - name: Get latest tag
+        id: get_tag
+        run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
           
       - name: Build and push Docker images
         uses: docker/build-push-action@v3.2.0
