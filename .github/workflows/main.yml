@@ -11,10 +11,6 @@ jobs:
     steps:
     
       - uses: actions/checkout@v3
-      - uses: ACyphus/random-word-slugs-action@v1.0.0
-        with:
-          # The number of words to generate
-          number-of-words: 1 # optional, default is 3
     
       - name: Docker Login
         uses: docker/login-action@v2.1.0
@@ -28,6 +24,6 @@ jobs:
           context: .
           push: true
           tags: |
-            sebashub/mercado_project:${{ steps.generate-words.outputs.words-kebab }}
+            sebashub/mercado_project:0.0.1
             sebashub/mercado_project:latest
             
