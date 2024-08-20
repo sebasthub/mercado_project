@@ -1,4 +1,4 @@
-name: CI
+name: Criar Imagem e Subir Para o Hub
 
 on:
   push:
