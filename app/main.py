@@ -8,4 +8,8 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    return {"msg": "Hello World"}
+
 app.include_router(produto_compras.router)
