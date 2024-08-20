@@ -1,0 +1,16 @@
+name: Testing Application
+
+on: [pull_request]
+
+jobs:
+  testing-application:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - uses: actions/checkout@v4.1.7
+      - name: instalar o python
+        uses: actions/setup-python@v5.1.1
+      - name: instalar o poetry
+        uses: ClementWalter/poetry-action@v1
+      - name: execução dos testes
+        run: poetry shell pytest
