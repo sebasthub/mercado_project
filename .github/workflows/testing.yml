@@ -11,6 +11,8 @@ jobs:
       - name: instalar o python
         uses: actions/setup-python@v5.1.1
       - name: instalar o poetry
-        uses: ClementWalter/poetry-action@v1
+        run: |
+          pip install poetry
+          poetry install
       - name: execução dos testes
-        run: poetry shell pytest
+        run: poetry run pytest
