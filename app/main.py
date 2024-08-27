@@ -12,5 +12,8 @@ app = FastAPI()
 async def root():
     return {"msg": "Hello World"}
 
+@app.get("/s2")
+async def root():
+    return {"msg": "corazon"}
 
 app.include_router(produto_compras.router)
