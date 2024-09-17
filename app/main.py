@@ -11,7 +11,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://sebasthub.github.io/devop-front/"],
+    allow_origins=["https://sebasthub.github.io"],
     allow_credentials=True,
     allow_methods=["*"], 
     allow_headers=["*"],
